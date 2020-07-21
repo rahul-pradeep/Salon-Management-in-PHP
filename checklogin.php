@@ -35,7 +35,7 @@ if ($result->num_rows > 0) {
 				 $_SESSION['login']=$_POST['email'];
 				 
 					$conn->close();
-				 header("Location:../login/mainpage.php"); 
+				 header("Location: login/mainpage.php"); 
 				 exit;
 			}
     }
@@ -47,7 +47,7 @@ if($flag==0)  {
 	 
 	 $conn->close();
 	 echo "<script type='text/javascript'>alert('Invalid Username or Password!..');</script>";
-	  echo "<script type='text/javascript'> window.location.href='login.html';</script>";
+	  echo "<script type='text/javascript'> window.location.href='index.html';</script>";
 	 
     
 }
