@@ -123,7 +123,7 @@ if (empty($_SESSION['login'])) {
 				echo "<table>";
 			
 				while($row = $result->fetch_assoc()) {
-					echo "<tr><td>".$row["name"]."</td><td>".$row["contact"]."</td><td>".$row["service"]."</td><td>".$row["date"]."</td><td> ".$row["time"]."</td><td>".$row["message"]."</td></tr>";
+					echo "<tr><td>".$row["name"]."</td><td>".$row["contact"]."</td><td>".$row["service"]."</td><td>".$row["date"]."</td><td> ".$row["time"]."</td><td>".$row["message"]."</td><td><a href='deletereg.php?id=".$row["id"]."'>FINISH SERVICE</a></td></tr>";
 												}
 				echo "</table>";
 				} 
