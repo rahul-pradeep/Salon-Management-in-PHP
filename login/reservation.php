@@ -1,3 +1,25 @@
+<?php
+$servername = 'localhost';
+$username = 'rahul';
+$password = 'Rahul99@';
+$dbname = 'rbeaut';
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+session_start();
+
+if (empty($_SESSION['login'])) {
+	echo "<script type='text/javascript'>alert('Please login first to access this page');</script>";
+	echo "<script type='text/javascript'> window.location.href='../index.html';</script>";
+	exit();
+}
+
+?>
+
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -5,8 +27,6 @@
 		<meta charset="utf-8" />
 		<link rel="icon" href="login/images/download.jpeg" type="image/gif">
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		 <link rel="stylesheet" href="css/font-awesome.min.css"/>
-		 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,700,300italic,700italic"/>
          <link rel="stylesheet" href="css/bulma.css"/>
          <link rel="stylesheet" href="../reg/css/my-login.css">
 
@@ -57,7 +77,7 @@
           
           <br><br>
 
-        <form action="POST">
+        <form method="POST" action="addreservation.php" >
           <div class="container">
             <div class="field">
                 <label class="label">Name</label>
@@ -66,14 +86,6 @@
                 </div>
               </div>
               
-              
-              <div class="field">
-                <label class="label">Email</label>
-                <div class="control ">
-                  <input class="input" type="email" name="email" placeholder="abcd@gmail.com" required>
-                </div>
-              </div>
-
               <div class="field">
                 <label class="label">Service</label>
                 <div class="control">
@@ -86,12 +98,27 @@
                 <div class="control ">
                   <input class="input" type="text" name="mobile" placeholder="987654321" required>
                 </div>
-              </div>
+			  </div>
+
+			  <div class="field">
+				<label class="label">Date</label>
+				<div class="control ">
+					<input class="input" type="text" name="date" id="datepicker" required></p>
+                </div>
+			  </div>
+
+			  <div class="field">
+                <label class="label">Time</label>
+                <div class="control ">
+                  <input class="input" type="text" name="time" placeholder="9.00 AM" required>
+                </div>
+			  </div>
+			  
                             
               <div class="field">
                 <label class="label">Message</label>
                 <div class="control">
-                  <textarea class="textarea" name="message" placeholder="Additional Requirements"></textarea>
+                  <textarea class="textarea" name="message" placeholder="Additional Requirements (max 50 word)"></textarea>
                 </div>
               </div>
               
@@ -119,6 +146,15 @@
 			<script src="js/skel.min.js"></script>
 			<script src="js/util.js"></script>
 			<script src="js/main.js"></script>
-
+			<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  			<link rel="stylesheet" href="/resources/demos/style.css">
+   			<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  			<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  			<script>
+  				$( function() {
+  			  $( "#datepicker" ).datepicker();
+ 				 } );
+  			</script>
+		
 	</body>
 </html>

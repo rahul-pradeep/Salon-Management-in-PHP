@@ -1,39 +1,34 @@
-<!-- <?php
-// $servername = getenv("mysql_hostname");
-// $username = getenv("mysql_username");
-// $password = getenv("mysql_password");
-// $dbname = getenv("mysql_database");
+<?php
+$servername = 'localhost';
+$username = 'rahul';
+$password = 'Rahul99@';
+$dbname = 'rbeaut';
 
-// $conn = new mysqli($servername, $username, $password, $dbname);
+$conn = new mysqli($servername, $username, $password, $dbname);
 
-// if ($conn->connect_error) {
-//     die("Connection failed: " . $conn->connect_error);
-// }
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
 
-// session_start();
+session_start();
 
-// if (empty($_SESSION['login'])) {
-// 	echo "<script type='text/javascript'>alert('Please login first to access this page');</script>";
-// 	echo "<script type='text/javascript'> window.location.href='../index.html';</script>";
-// 	exit();
-// }
+if (empty($_SESSION['login'])) {
+	echo "<script type='text/javascript'>alert('Please login first to access this page');</script>";
+	echo "<script type='text/javascript'> window.location.href='../index.html';</script>";
+	exit();
+}
 
-// $sql = "SELECT Name FROM Individual where username='{$_SESSION['login']}'";
-// $result = $conn->query($sql);
-// $row = $result->fetch_assoc();
-// $name = $row['Name'];
 ?>
--->
+
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>HOME</title>
+		<title>RBEAUT</title>
 		<meta charset="utf-8" />
 		<link rel="icon" href="login/images/download.jpeg" type="image/icon type">
 
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		 <link rel="stylesheet" href="css/font-awesome.min.css"/>
-		 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,700,300italic,700italic"/>
 		 <link rel="stylesheet" href="css/bulma.css"/>
 	</head>
 	<body>
